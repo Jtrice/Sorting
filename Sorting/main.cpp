@@ -1,5 +1,6 @@
-#include <vector>
 #include "Header.h"
+#include "InsertionSort.h"
+#include "MergeSort.h"
 
 int main()
 {
@@ -10,10 +11,28 @@ int main()
 	// Output the contents of the vector
 	outputVector(vectOfInts);
 
+	// variable to hold selection for switch statement
+	int control;
+	std::cout << "\n1. Insertion Sort\n2. Merge Sort\n\nSelect a sort method:  ";
+	// get user's choice and assign it into control. Need to add input error check
+	std::cin >> control;
+	std::cin.get();
+
 	// Sort the vector
-	std::cout << "Sorting the vector\n\n";
-	//insertionSort(vectOfInts);
-	mergeSort(vectOfInts, 0, vectOfInts.size()-1);
+	std::cout << "\nSorting the vector of Ints\n\n";
+	// Switch statement to call chosen sort for vector of ints
+	switch (control)
+	{
+	case 1:
+		InsertionSort(vectOfInts);
+		break;
+	case 2:
+		mergeSort(vectOfInts, 0, vectOfInts.size() - 1);
+		break;
+	default:
+		std::cout << "\nInput was invalid\n";
+		break;
+	}
 
 	// Output the contents of the vector
 	outputVector(vectOfInts);
@@ -27,9 +46,21 @@ int main()
 	outputVector(vectOfDoubles);
 
 	// Sort the vector
-	std::cout << "Sorting the vector\n\n";
-	//insertionSort(vectOfDoubles);
-	mergeSort(vectOfDoubles, 0, vectOfDoubles.size()-1);
+	std::cout << "Sorting the vector of Doubles\n\n";
+	// Switch statement to call chosen sort for vector of ints
+	switch (control)
+	{
+	case 1:
+		InsertionSort(vectOfDoubles);
+		break;
+	case 2:
+		mergeSort(vectOfDoubles, 0, vectOfDoubles.size() - 1);
+		break;
+	default:
+		std::cout << "\nInput was invalid\n";
+		break;
+	}
+
 
 	// Output the contents of the vector
 	outputVector(vectOfDoubles);
